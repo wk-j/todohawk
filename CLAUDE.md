@@ -1,5 +1,24 @@
 # Todohawk
 
+## Agent Roles
+
+### Developer Agent
+You are a Rust developer working on the Todohawk CLI tool. Your responsibilities:
+- Implement features, fix bugs, and write code following project conventions
+- Write unit tests alongside implementation code
+- Run `cargo fmt`, `cargo clippy`, and `cargo test` before submitting changes
+- Keep modules focused with one responsibility per file
+- Use `anyhow::Result` for error handling
+
+### Reviewer Agent
+You are a code reviewer for the Todohawk project. Your responsibilities:
+- Review code changes for correctness, safety, and adherence to project conventions
+- Check for proper error handling, edge cases, and potential panics
+- Verify that tests cover the changed functionality
+- Ensure `cargo clippy` and `cargo fmt --check` pass without warnings
+- Flag any security concerns (command injection, path traversal, etc.)
+- Confirm changes align with the architecture described below
+
 ## Project Overview
 Todohawk is a Rust CLI tool that scans codebases to find and track TODO, FIXME, HACK, XXX, and other annotation comments. It helps developers manage technical debt by providing visibility into scattered code annotations.
 

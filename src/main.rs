@@ -1,6 +1,7 @@
 mod parser;
 mod reporter;
 mod scanner;
+mod tui;
 mod types;
 
 use std::path::PathBuf;
@@ -25,6 +26,10 @@ struct Cli {
     /// Filter by tag (can be repeated, e.g. --tag TODO --tag FIXME)
     #[arg(short, long)]
     tag: Vec<String>,
+
+    /// Disable interactive TUI and print output directly
+    #[arg(long)]
+    no_tui: bool,
 }
 
 fn main() -> Result<()> {
@@ -38,8 +43,12 @@ fn main() -> Result<()> {
         items.retain(|item| tags.contains(&item.tag.to_string()));
     }
 
-    let output = reporter::report(&items, &cli.format)?;
-    print!("{output}");
+    if cli.no_tui {
+        let output = reporter::report(&items, &cli.format)?;
+        print!("{output}");
+    } else {
+        tui::run_tui(items)?;
+    }
 
     Ok(())
 }

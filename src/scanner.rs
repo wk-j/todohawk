@@ -75,7 +75,14 @@ fn is_ignored(entry: &walkdir::DirEntry) -> bool {
     }
 
     // Skip common non-source directories
-    let skip_dirs = ["target", "node_modules", "dist", "build", "vendor", "__pycache__"];
+    let skip_dirs = [
+        "target",
+        "node_modules",
+        "dist",
+        "build",
+        "vendor",
+        "__pycache__",
+    ];
     if entry.file_type().is_dir() && skip_dirs.contains(&name.as_ref()) {
         return true;
     }

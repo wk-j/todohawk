@@ -32,8 +32,8 @@ impl fmt::Display for Tag {
 }
 
 impl Tag {
-    pub fn all() -> Vec<Tag> {
-        vec![
+    pub fn all() -> &'static [Tag] {
+        &[
             Tag::Todo,
             Tag::Fixme,
             Tag::Hack,
@@ -43,6 +43,32 @@ impl Tag {
             Tag::Bug,
             Tag::Warn,
         ]
+    }
+
+    pub fn color(&self) -> ratatui::style::Color {
+        use ratatui::style::Color;
+        match self {
+            Tag::Fixme | Tag::Bug => Color::Red,
+            Tag::Todo => Color::Yellow,
+            Tag::Hack => Color::Magenta,
+            Tag::Xxx => Color::LightRed,
+            Tag::Note => Color::Cyan,
+            Tag::Optimize => Color::Green,
+            Tag::Warn => Color::Rgb(255, 165, 0),
+        }
+    }
+
+    pub fn shortcut_key(&self) -> char {
+        match self {
+            Tag::Todo => '1',
+            Tag::Fixme => '2',
+            Tag::Hack => '3',
+            Tag::Xxx => '4',
+            Tag::Note => '5',
+            Tag::Optimize => '6',
+            Tag::Bug => '7',
+            Tag::Warn => '8',
+        }
     }
 }
 

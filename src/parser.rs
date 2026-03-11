@@ -41,8 +41,14 @@ pub fn parse_line(line: &str, file: &Path, line_number: usize) -> Option<TodoIte
     let caps = TODO_RE.captures(line)?;
 
     let tag = parse_tag(caps.get(1)?.as_str())?;
-    let author = caps.get(2).map(|m| m.as_str().trim().to_string()).filter(|s| !s.is_empty());
-    let message = caps.get(3).map(|m| m.as_str().trim().to_string()).unwrap_or_default();
+    let author = caps
+        .get(2)
+        .map(|m| m.as_str().trim().to_string())
+        .filter(|s| !s.is_empty());
+    let message = caps
+        .get(3)
+        .map(|m| m.as_str().trim().to_string())
+        .unwrap_or_default();
 
     Some(TodoItem {
         tag,
