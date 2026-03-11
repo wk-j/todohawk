@@ -1,8 +1,8 @@
 [package]
-name = "todo-tracker"
+name = "todohawk"
 version = "0.1.0"
 edition = "2024"
-description = "A CLI tool that tracks TODO, FIXME, HACK, and other comment annotations across a codebase"
+description = "A CLI tool that scans codebases for TODO, FIXME, HACK, and other comment annotations"
 license = "MIT"
 
 [dependencies]

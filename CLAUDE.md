@@ -1,7 +1,7 @@
-# TODO Tracker CLI
+# Todohawk
 
 ## Project Overview
-A Rust CLI tool that scans codebases to find and track TODO, FIXME, HACK, XXX, and other annotation comments. It helps developers manage technical debt by providing visibility into scattered code annotations.
+Todohawk is a Rust CLI tool that scans codebases to find and track TODO, FIXME, HACK, XXX, and other annotation comments. It helps developers manage technical debt by providing visibility into scattered code annotations.
 
 ## Architecture
 

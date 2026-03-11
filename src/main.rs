@@ -12,7 +12,7 @@ use types::OutputFormat;
 
 /// A CLI tool that scans codebases for TODO, FIXME, HACK, and other annotation comments.
 #[derive(Parser)]
-#[command(name = "todo-tracker", version, about)]
+#[command(name = "todohawk", version, about)]
 struct Cli {
     /// Directory to scan (defaults to current directory)
     #[arg(default_value = ".")]
